@@ -21,7 +21,10 @@ async def read_students(class_list: Optional[List[str]] = Query(None, alias="cla
     with open('q-fastapi_.csv', mode='r') as file:
         reader = csv.DictReader(file)
         for row in reader:
-            students.append({"studentid": int(row['studentid']), "class": row['class']})
+            students.append({
+                "studentId": int(row['studentId']),  # <--- MUST match image: capital 'I'
+                "class": row['class']                # <--- MUST match image: lowercase 'c'
+            })
     
     if not class_list:
         return {"students": students}
