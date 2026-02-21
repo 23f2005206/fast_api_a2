@@ -21,7 +21,7 @@ async def read_students(class_list: Optional[List[str]] = Query(None, alias="cla
     with open('q-fastapi_.csv', mode='r') as file:
         reader = csv.DictReader(file)
         for row in reader:
-            students.append({"studentId": int(row['studentId']), "class": row['class']})
+            students.append({"studentid": int(row['studentid']), "class": row['class']})
     
     if not class_list:
         return {"students": students}
