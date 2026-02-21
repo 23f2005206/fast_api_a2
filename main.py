@@ -18,7 +18,7 @@ app.add_middleware(
 async def read_students(class_list: Optional[List[str]] = Query(None, alias="class")):
     students = []
     # Use a relative path so it finds the file on the server
-    with open('q-fastapi.csv', mode='r') as file:
+    with open('q-fastapi_.csv', mode='r') as file:
         reader = csv.DictReader(file)
         for row in reader:
             students.append({"studentId": int(row['studentId']), "class": row['class']})
